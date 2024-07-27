@@ -1,0 +1,138 @@
+from datetime import datetime
+from operations import *
+from write import *
+from read import *
+
+# welcome message
+welcome()
+
+# opening the txt file
+txt_file = open_txt()
+
+# displaying options
+loop = True
+while loop == True:
+    choice()
+    character = False
+    while character == False:
+        try:
+            option = int(input("Please enter your option: "))
+            print("\n")
+            print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("\n")
+            character = True
+        except ValueError:
+               print("Invalid option. Please enter a valid option.")
+               print("\n")
+
+# LOGIC FOR WHEN CUSTOMER WANTS TO PURCHASE
+    if option == 1:
+        print("Please provide the following details: ")
+        print("\n")
+        customer_name = input("Enter your name: ")
+        print("\n")
+        customer_number = input("Enter your phone number: ")
+        print("\n")
+        print("---------------------------------------------------------------------------------------------------------------------------------------------------------")
+        print("\n")
+
+        purchased_laptop = []
+        customer_wants_to_continue = True
+
+        while customer_wants_to_continue == True:
+            stock()
+
+        # to check if id is valid
+            laptop_id = validID_1(txt_file)
+
+        # to check if quantity is valid
+            quantity = valid_quantity_1(txt_file,laptop_id)
+
+        # updating the txt file
+            update_file1(txt_file,laptop_id,quantity)
+
+        # for purchased items
+            purchased_latop = purchased_products(txt_file,laptop_id,quantity,purchased_laptop)
+
+            to_continue = input("Would you like to continue? [Y/N] ").upper()
+            if to_continue =="Y":
+                customer_wants_to_continue = True
+            else:
+                print("\n")
+                total = 0
+                shipping_price = 500
+                for i in purchased_laptop:
+                    total+=int(i[3])
+                grand_total = total + shipping_price
+                date_time = datetime.now()
+                d_t = str(date_time).split(" ")
+                datentime = "_".join(d_t)
+                dateandtime = datentime.replace(":","_")
+            
+                print_bill(customer_name,customer_number,purchased_laptop,shipping_price,grand_total)
+
+                write_bill(customer_name, dateandtime, customer_number,purchased_laptop,total,shipping_price, grand_total)
+                customer_wants_to_continue = False
+
+            
+
+    # LOGIC FOR WHEN THE SHOP BUYS
+    elif option == 2:
+        print("Please provide the following details: ")
+        print("\n")
+        company_name = input("Enter your company name: ")
+        print("\n")
+        company_number = int(input("Enter your phone number: "))
+        print("\n")
+        print("---------------------------------------------------------------------------------------------------------------------------------------------------------")
+        print("\n")
+
+        purchased_laptop = []
+        company_wants_to_continue = True
+        while company_wants_to_continue == True:
+            stock()
+
+    # to check if id and quantity is valid
+            
+            laptop_id = validID(txt_file)
+
+            quantity = valid_quantity_2(txt_file,laptop_id)
+    # updating the txt file
+            update_file2(txt_file,laptop_id,quantity)
+
+    # for sold items
+            purchase_latop = sold_items(txt_file,laptop_id,quantity,purchased_laptop )
+
+            to_continue = input("Would you like to continue? [Y/N] ").upper()
+            if to_continue =="Y":
+                company_wants_to_continue = True
+            else:
+                print("\n")
+                total = 0
+                print("VAT = 13%")
+                for item in purchase_latop:
+                    total += int(item[3])
+                vat = total * (13/100)   
+                grand_total = total + vat
+                date_time = datetime.now()
+                d_t = str(date_time).split(" ")
+                datentime = "-".join(d_t)
+                dateandtime = datentime.replace(":","-")
+            
+                print_invoice(company_name,company_number,date_time,purchased_laptop,vat,grand_total)
+
+                write_invoice(company_name,dateandtime, company_number,date_time,purchased_laptop,total,vat,grand_total)
+
+                company_wants_to_continue = False
+
+        # LOGIC FOR EXITING THE SYSTEM   
+    
+    elif option == 3:
+        loop = False
+        print("YOU HAVE EXIT THE SYSTEM. THANKYOU.")
+        print("\n")
+
+        # WHEN OPTION ENTERED IS INCORRECT
+    else:
+        print("THE OPTION YOU HAVE ENTERED IS INVALID. PLEASE TRY AGAIN. ")
+        print("\n")
