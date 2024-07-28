@@ -1,0 +1,130 @@
+import datetime
+
+# function for welcome message
+function welcome()
+    print ("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print ("WELCOME TO OUR LAPTOP STORE!")
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print a new line
+
+# function for displaying the options
+function choice()
+    print ("Please enter 1 to BUY LAPTOPS")
+    print ("Please enter 2 to SELL LAPTOPS")
+    print ("Please enter 3 to EXIT")
+    print a new line 
+
+#to check if id is vaid for option 1
+function validID_1(txt_file)
+    declare character = False
+    while character == False
+        try
+            input laptop_id
+            print a new line
+            while laptop_id <= 0 or laptop_id > len(txt_file)
+                print ("The ID you have provided is invalid. Please enter a valid Laptop ID.")
+                print a new line
+                input laptop_id
+              end while
+            declare character = True
+        except
+            print("The ID is invalid. Please enter a valid ID.")
+    end while
+    return laptop_id
+
+#to check if quantity is valid for option 2
+function valid_quantity_2(txt_file,laptop_id)
+    declare character = False
+    while character == False
+        try
+            input quantity
+            declare get_quantity = txt_file[laptop_id][3]
+            while quantity <= 0
+                print("Sorry! The quantity you have provided is invalid.")
+                print a new line
+                input quantity
+                print a new line
+            declare character = True
+            end while
+        except
+            print("The quantity you have input is invalid. Please enter a valid quantity.")
+    end while
+    return quantity
+
+#to check if quantity is valid for option 2
+function valid_quantity_1(txt_file,laptop_id):
+    declare character = False
+    while character == False:
+        try
+            input quantity
+            declare get_quantity = txt_file[laptop_id][3]
+            while quantity <= 0 or quantity > int(get_quantity):
+                print("Sorry! The quantity you have provided is unavailable.")
+                print a new line
+                input quantity
+                print a new line
+            declare character = True
+        end while
+        except
+            print("The quantity you have input is invalid. Please enter a valid quantity.")
+    end while
+    return quantity
+
+# updating the txt file for option 1
+function update_file1(txt_file,laptop_id,quantity)
+    declare txt_file[laptop_id][3] = int(txt_file[laptop_id][3]) - int(quantity)
+    declare data and open ("LAPTOP.txt", "w")
+    for values in txt_file.values():
+        write data (str(values[0]) + "," + str(values[1]) + "," + str(values[2])+ "," + str(values[3])+ "," + str(values[4]))
+        write data (print a new line)
+     end for
+    close data 
+
+# for purchased items
+function purchased_products(txt_file,laptop_id,quantity,purchased_laptop)
+    declare product = txt_file[laptop_id] [0]
+    declare user_quantity = quantity
+    declare price = txt_file[laptop_id][2]
+    declare item_price = txt_file[laptop_id][2].replace("$", '')
+    declare total_price = int(item_price) * int(user_quantity)
+
+    return purchased_laptop.append([product, user_quantity, price, total_price])
+    
+# FOR OPTION 2:
+#to check if id is vaid for option 2
+function validID(txt_file)
+    declare character = False
+    while character == False
+        try
+            input laptop_id
+            print a new line
+            while laptop_id <= 0 or laptop_id > len(txt_file)
+                print ("The ID you have provided is invalid. Please enter a valid Laptop ID.")
+                print a new line
+                input laptop_id
+            end while
+            declare character = True
+        except
+            print("The ID is invalid. Please enter a valid ID.")
+    end while
+    return laptop_id
+
+# updating the txt file for option 2
+function update_file2(txt_file,laptop_id,quantity)
+    declare txt_file[laptop_id][3] = int(txt_file[laptop_id][3]) + int(quantity)
+    declare data and open("LAPTOP.txt", "w")
+    for values in txt_file.values()
+        write data(str(values[0]) + "," + str(values[1]) + "," + str(values[2])+ "," + str(values[3])+ "," + str(values[4]))
+        write data (print a new line)
+    end for
+    close data
+
+# function for sold items
+function sold_items(txt_file,laptop_id,quantity,purchased_laptop)
+    declare product = txt_file[laptop_id][0]
+    declare company_quantity = quantity
+    declare price = txt_file[laptop_id][2]
+    declare item_price = txt_file[laptop_id][2].replace("$", '')
+    declare total_price = int(item_price) * int(company_quantity)
+    declare purchased_laptop.append([product, company_quantity, price, total_price])
+    return purchased_laptop
