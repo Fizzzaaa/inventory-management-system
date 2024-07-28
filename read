@@ -1,0 +1,27 @@
+#function for opening txt file
+function open_txt()
+    declare data and open ("LAPTOP.txt", "r")
+    declare dictionary = {}
+    declare l_id = 1
+    for line in data
+        declare line = line.replace("\n", "")
+        declare dictionary with {l_id: line.split(",")} update
+        declare l_id = l_id + 1
+    end for
+    close data
+    return dictionary
+
+# function for displaying the stock
+function stock()
+    print ("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print ("S.No. \t\t Laptop Name \t\t Company Name \t\t Price \t\t Quantity \t\t Graphics")
+    print ("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    declare data and open ("LAPTOP.txt", "r")
+    declare x = 1
+    for line in data
+        print (x, "\t\t" + line.replace(",", "\t\t"))
+       declare x = x + 1
+    end for
+    print ("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    close data
+    print a new line
