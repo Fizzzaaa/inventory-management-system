@@ -1,0 +1,168 @@
+import datetime
+
+#print function for bill
+function print_bill (customer_name, customer_number, purchased_laptop, shipping_price, grand_total)
+    print a new line
+    print(" YOUR INVOICE: ")
+    print a new line
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print("The laptop details are: ")
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print("Customer Name: " + str(customer_name))
+    print a new line
+    print("Phone Number: " + str(customer_number))
+    print a new line
+    print("Date and Time of the purchase: " + str(datetime.now()))
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print a new line
+    print("Purchase details are: ")
+    print a new line
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print("Laptop Name  \t\t Quantity  \t\t  Unit Price \t\t  Total Price")
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    for i in purchased_laptop
+        print(i[0], "\t\t\t", i[1], "\t\t\t", i[2], "\t\t\t", i[3], "\t\t\t")
+    end for
+    print a new line
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print a new line
+    print("Your shipping charge is: " , shipping_price)
+    print a new line
+    print("Grand Total: ", str(grand_total))
+    print a new line
+    print("NOTE: THE SHIPPING COST HAS BEEN ADDED TO GRAND TOTAL")
+    print a new line
+    print("Baneshwor, Kathmandu | Phone No: 9888887777")
+    print a new line
+
+
+# write function for bill
+function write_bill(customer_name, dateandtime, customer_number, purchased_laptop, total, shipping_price, grand_total)
+    declare data and open(str(customer_name)+("_")+str(dateandtime)+".txt", "w")
+    write data (print a new line)
+    write data ("\t \t \t \t \t \t \t \t \t Laptop Bill")
+    write data (print a new line)
+    write data (print a new line)
+    write data ("\t \t \t \t \t Baneshwor , Kathmandu | Phone no: 9888887777")
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data ("Product details are: ")
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data ("Customer's Name: " + str(customer_name))
+    write data (print a new line)
+    write data ("Contact number: " + str(customer_number))
+    write data (print a new line)
+    write data ("Date and time of purchase: " + str(datetime.now()))
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data (print a new line)
+    write data ("Purchase Details are: ")
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data ("Product Name \t \t Total Quantity \t\t Price(per piece) \t\t\t Total")
+    write data. (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    for i in purchased_laptop
+        write data (str(i[0]) + "\t \t \t" +str(i[1])+ "\t \t \t " +str( i[2]) + "\t \t \t"+ str(i[3]))
+    end for
+    write data. (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data (print a new line)
+    write data ("Your total is : $" + str(total))
+    write data (print a new line)
+    write data ("Your Shipping charge is : $ " + str(shipping_price))
+    write data (print a new line)
+    write data ("Grand Total : $" + str(grand_total))
+    write data (print a new line)
+    write data ("\t \t \t \t \t \t \t ***NOTE: THE SHIPPING COST HAS BEEN ADDED TO GRAND TOTAL.***")
+    close data
+
+#print function for invoice
+function print_invoice(company_name, company_number, date_time, purchased_laptop, vat, grand_total)
+    print a new line
+    print(" your bill ")
+    print a new line
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print("The laptop details are: ")
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print ("Company Name: " + str(company_name))
+    print a new line
+    print("Phone Number: " + str(company_number))
+    print a new line
+    print("Date and Time of the purchase: " + str(date_time))
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print a new line
+    print("Purchase details are: ")
+    print a new line
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print ("Laptop Name  \t\t Quantity  \t\t  Unit Price \t\t  Total Price")
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    for i in purchased_laptop
+        print(i[0], "\t\t\t", i[1], "\t\t\t", i[2], "\t\t\t", i[3], "\t\t\t")
+    end for
+    print a new line
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print a new line
+    print("The VAT is: " , vat)
+    print a new line
+    print ("Grand Total: ", str(grand_total))
+    print a new line
+    print("NOTE: VAT HAS BEEN ADDED TO GRAND TOTAL")
+    print a new line
+    print("Baneshwor, Kathmandu | Phone No: 9888887777")
+    print a new line
+
+#write function for invoice 
+function write_invoice(company_name, dateandtime, company_number, date_time, purchased_laptop, total, vat, grand_total):
+    data = open(str(company_name)+("_")+str(dateandtime)+"bill.txt", "w")
+    write data (print a new line)
+    write data ("\t \t \t \t \t \t \t \t \t Laptop Invoice")
+    write data (print a new line)
+    write data (print a new line)
+    write data ("\t \t \t \t \t Baneshwor , Kathmandu | Phone no: 9888887777")
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data ("Product details are: ")
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data ("Company's Name: " + str(company_name))
+    write data (print a new line)
+    write data("Contact number: " + str(company_number))
+    write data (print a new line)
+    write data ("Date and time of sale: " + str(datetime.now()))
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data (print a new line)
+    write data ("Sale Details are: ")
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data ("Product Name \t \t Total Quantity \t\t Price(per piece) \t\t\t Total")
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    for i in purchased_laptop
+        write data (str(i[0]) + "\t \t \t" +str(i[1])+ "\t \t \t " +str( i[2]) + "\t \t \t"+ str(i[3]))
+    end for
+    write data (print a new line)
+    write data ("--------------------------------------------------------------------------------------------------------------------------------------------------------")
+    write data (print a new line)
+    write data (print a new line)
+    write data ("The total is : $" + str(total))
+    write data (print a new line)
+    write data ("The VAT is : $ " + str(vat))
+    write data (print a new line)
+    write data ("Grand Total : $" + str(grand_total))
+    write data (print a new line)
+    write data ("\t \t \t \t \t \t \t***NOTE: VAT HAS BEEN ADDED TO GRAND TOTAL.***")
+    close data
